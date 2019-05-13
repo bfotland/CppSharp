@@ -32,7 +32,7 @@ configuration:
 
 environment:
   VS_VERSION: vs2017
-  BUILD_PLATFORM: 'x86'
+  BUILD_PLATFORM: 'x64'
   DEPS_PATH: '%APPVEYOR_BUILD_FOLDER%\deps'
   LLVM_PATH: '%APPVEYOR_BUILD_FOLDER%\deps\llvm'
   BUILD_PATH: '%APPVEYOR_BUILD_FOLDER%\build\%VS_VERSION%'
@@ -45,7 +45,7 @@ init:
   - git config --global core.autocrlf true
 
 install:
-  - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"
+  - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
   - build\premake5.exe --file=build\scripts\LLVM.lua download_llvm
 
 build_script:
